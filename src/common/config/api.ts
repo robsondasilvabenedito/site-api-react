@@ -1,15 +1,22 @@
 import { StatusError } from "../error/statusError"
 import { User } from "../model/user"
 
-const API_URL="http://127.0.0.1:3000"
+const API_URL = `${import.meta.env.VITE_API_URL}:${import.meta.env.VITE_API_PORT}`
+
+//
+const API_CREATE_USER = `${import.meta.env.VITE_API_CREATE_USER}`
+const API_DELETE_USER = `${import.meta.env.VITE_API_DELETE_USER}`
+const API_GET_USER = `${import.meta.env.VITE_API_GET_USER}`
+const API_GET_USERS = `${import.meta.env.VITE_API_GET_USERS}`
+const API_UPDATE_USER = `${import.meta.env.VITE_API_UPDATE_USER}`
 
 //
 const api = {
     async createUser(user: User) {
-        const result = await fetch(`${API_URL}/user`,{
+        const result = await fetch(`${API_URL}/${API_CREATE_USER}`, {
             method: "POST",
             headers: {
-                "Content-Type":"application/json",
+                "Content-Type": "application/json",
             },
             body: JSON.stringify(user)
         })
@@ -20,10 +27,10 @@ const api = {
         }
     },
     async updateUser(user: User) {
-        const result = await fetch(`${API_URL}/user`,{
+        const result = await fetch(`${API_URL}/${API_UPDATE_USER}`, {
             method: "PUT",
             headers: {
-                "Content-Type":"application/json",
+                "Content-Type": "application/json",
             },
             body: JSON.stringify(user)
         })
@@ -34,7 +41,7 @@ const api = {
         }
     },
     async getUser(id: number): Promise<User> {
-        const result = await fetch(`${API_URL}/user/${id}`,{
+        const result = await fetch(`${API_URL}/${API_GET_USER}/${id}`, {
             method: "GET",
         })
 
@@ -47,7 +54,7 @@ const api = {
         return (await result.json())[0]
     },
     async getUsers(): Promise<User[]> {
-        const result = await fetch(`${API_URL}/user`,{
+        const result = await fetch(`${API_URL}/${API_GET_USERS}`, {
             method: "GET",
         })
 
@@ -60,7 +67,7 @@ const api = {
         return await result.json()
     },
     async deleteUser(id: number) {
-        const result = await fetch(`${API_URL}/user/${id}`,{
+        const result = await fetch(`${API_URL}/${API_DELETE_USER}/${id}`, {
             method: "DELETE",
         })
 
