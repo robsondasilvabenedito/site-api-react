@@ -21,7 +21,7 @@ export const Modal = (props: ModalProps) => {
             <div className="w-[600px] p-3 flex flex-col bg-[#181818] shadow-[0px_0px_5px_-0.5px] shadow-[#707070]">
                 <div className="max-h-[60vh] overflow-scroll">
                     {users.map((user, index) => {
-                        return <div className="flex flex-row mt-[5px] justify-between" key={`${user.nome}-${index}`}>
+                        return <div className="flex flex-row text-white mt-[5px] justify-between" key={`${user.nome}-${index}`}>
                             <div className="p-1">
                                 {user.nome}
                             </div>

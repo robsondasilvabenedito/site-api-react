@@ -37,7 +37,7 @@ export const Form = (props: FromProps) => {
                 //
                 if (input.tipo === "password") return <div key={input.nome} className="flex flex-col">
                     <label className="text-left p-1 mb-[1px] mt-[5px] font-semibold" htmlFor={input.nome}> {input.label} </label>
-                    <input id={input.nome} name={input.nome} className="mb-[1px] p-1 focus:outline-none m-1 focus:ring-green-600 focus:ring-1" type={input.tipo} value={value} onChange={updateForm} />
+                    <input id={input.nome} name={input.nome} className="mb-[1px] bg-[#292727] p-1 focus:outline-none m-1 focus:ring-green-600 focus:ring-1" type={input.tipo} value={value} onChange={updateForm} />
                     <label className={`text-left p-1 text-red-600 shadow-sm animate-pulse ${hasError ? "" : "hidden"}`}> {input.error} </label>
                 </div>
 
@@ -48,7 +48,7 @@ export const Form = (props: FromProps) => {
                 //
                 return <div key={input.nome} className="flex flex-col">
                     <label className="text-left p-1 mb-[1px] mt-[5px] font-semibold" htmlFor={input.nome}> {input.label} </label>
-                    <input id={input.nome} name={input.nome} className="mb-[1px] p-1 focus:outline-none m-1 focus:ring-green-600 focus:ring-1" type={input.tipo} value={value} onChange={updateForm} />
+                    <input id={input.nome} name={input.nome} className="mb-[1px] bg-[#292727] p-1 focus:outline-none m-1 focus:ring-green-600 focus:ring-1" type={input.tipo} value={value} onChange={updateForm} />
                     <label className={`text-left p-1 text-red-600 shadow-sm animate-pulse ${hasError ? "" : "hidden"}`}> {input.error} </label>
                 </div>
             })}

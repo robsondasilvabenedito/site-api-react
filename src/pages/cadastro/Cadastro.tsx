@@ -16,6 +16,7 @@ export const Cadastro = () => {
         { nome: "id", label: "hidden", error: "", tipo: "number" },
         { nome: "nome", label: "Nome", tipo: "text", error: "Nome deve ter mais de 5 caracteres" },
         { nome: "senha", label: "Senha", tipo: "password", error: "Senha deve ter mais de 8 caracteres" },
+        { nome: "confSenha", label: "Confirmar Senha", tipo: "password", error: "Senhas devem ser iguais" },
         { nome: "login", label: "Login", tipo: "text", error: "Login deve ter mais de 5 caracteres" },
         { nome: "email", label: "Email", tipo: "email", error: "Email Inválido" },
         { nome: "anoNascimento", label: "Ano de Nascimento", tipo: "number", error: "Ano Inválido" }
@@ -41,6 +42,7 @@ export const Cadastro = () => {
         let id = isNaN(Number(user["id"])) ? 0 : Number(user["id"])
         let nome = user["nome"] ?? ""
         let senha = user["senha"] ?? ""
+        let confSenha = user["confSenha"] ?? ""
         let login = user["login"] ?? ""
         let email = user["email"] ?? ""
         let anoNascimento = user["anoNascimento"] ?? 0
@@ -59,6 +61,7 @@ export const Cadastro = () => {
         //
         if (!validateNome(nome)) errors.nome = true
         if (!validateSenha(senha)) errors.senha = true
+        if (senha !== confSenha) errors.confSenha = true
         if (!validateLogin(login)) errors.login = true
         if (!validateEmail(email)) errors.email = true
         if (!validateAnoNascimento(anoNascimento)) errors.anoNascimento = true
